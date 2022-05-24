@@ -8,7 +8,7 @@ https://rdpackages.github.io/replication
 
 ## Reference
 
-- Cattaneo, Keele and Titiunik (2022): [A Guide to Regression Discontinuity Designs in Medical Applications]().<br>
-Coming soon.
+- Cattaneo, Keele and Titiunik (2022): [A Guide to Regression Discontinuity Designs in Medical Applications](https://rdpackages.github.io/references/Cattaneo-Keele-Titiunik_2022_RDIntroMed.pdf).<br>
+Working paper.
 
 <br><br>
