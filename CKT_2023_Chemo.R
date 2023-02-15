@@ -19,7 +19,6 @@ library(dplyr)
 library(ggplot2)
 library(rdrobust)
 
-# Make sure to set working directory to "replication" folder
 data <- read.dta("CKT_2023_Chemo.dta", warn.missing.labels = FALSE)
 data <- data %>% filter(onc_score >= 15, onc_score <=30)
 
@@ -101,7 +100,7 @@ n_runs <- length(vars)
 out1 <- matrix(NA, n_runs,4)
 
 for(i in 1:n_runs){
-  temp <- rdrandinf(Z[,i], data$onc_score, cutoff = 25.9, seed= 5023, wl=25, wr=26)
+  temp <- rdrandinf(Z[,i], data$onc_score, cutoff = 25.5, seed= 5023, wl=25, wr=26)
   out1[i,1] <- temp$sumstats[3,1]
   out1[i,2] <- temp$sumstats[3,2]
   out1[i,3] <- temp$obs.stat
@@ -118,7 +117,6 @@ var_names <- c("Age", "White", "Af-American", "Other Race", "Hispanic", "Lo Grad
 colnames(out1) <- c("Mean Below", "Mean Above", "Diff. in Means", "p-value")
 rownames(out1) <- var_names
 
-## Table
 out1
 temp$sumstats[2,1] + temp$sumstats[2,2]
 
@@ -126,7 +124,7 @@ temp$sumstats[2,1] + temp$sumstats[2,2]
 out2 <- matrix(NA, n_runs,4)
 
 for(i in 1:n_runs){
-  temp <- rdrandinf(Z[,i], data$onc_score, cutoff = 25.9, seed= 5023, wl=24, wr=27)
+  temp <- rdrandinf(Z[,i], data$onc_score, cutoff = 25.5, seed= 5023, wl=24, wr=27)
   out2[i,1] <- temp$sumstats[3,1]
   out2[i,2] <- temp$sumstats[3,2]
   out2[i,3] <- temp$obs.stat
@@ -136,7 +134,6 @@ for(i in 1:n_runs){
 colnames(out2) <- c("Mean Below", "Mean Above", "Diff. in Means", "p-value")
 rownames(out2) <- var_names
 
-# Table 8
 out2
 temp$sumstats[2,1] + temp$sumstats[2,2]
 
@@ -144,7 +141,7 @@ temp$sumstats[2,1] + temp$sumstats[2,2]
 out3 <- matrix(NA, n_runs,4)
 
 for(i in 1:n_runs){
-  temp <- rdrandinf(Z[,i], data$onc_score, cutoff = 24.9, seed= 5023, wl=23, wr=28)
+  temp <- rdrandinf(Z[,i], data$onc_score, cutoff = 25.5, seed= 5023, wl=23, wr=28)
   out3[i,1] <- temp$sumstats[3,1]
   out3[i,2] <- temp$sumstats[3,2]
   out3[i,3] <- temp$obs.stat
@@ -163,7 +160,7 @@ out4 <- matrix(NA, n_runs,4)
 #memory.limit(30300000)
 
 for(i in 1:n_runs){
-  temp <- rdrandinf(Z[,i], data$onc_score, cutoff = 24.9, seed= 5023, wl=22, wr=29)
+  temp <- rdrandinf(Z[,i], data$onc_score, cutoff = 25.5, seed= 5023, wl=22, wr=29)
   out4[i,1] <- temp$sumstats[3,1]
   out4[i,2] <- temp$sumstats[3,2]
   out4[i,3] <- temp$obs.stat
@@ -179,7 +176,7 @@ temp$sumstats[2,1] + temp$sumstats[2,2]
 out5 <- matrix(NA, n_runs,4)
 
 for(i in 1:n_runs){
-  temp <- rdrandinf(Z[,i], data$onc_score, cutoff = 24.9, seed= 5023, wl=21, wr=30)
+  temp <- rdrandinf(Z[,i], data$onc_score, cutoff = 25.5, seed= 5023, wl=21, wr=30)
   out5[i,1] <- temp$sumstats[3,1]
   out5[i,2] <- temp$sumstats[3,2]
   out5[i,3] <- temp$obs.stat

@@ -22,16 +22,11 @@ library(xtable)
 library(dplyr)
 library(rdlocrand)
 
-# Make sure to set working directory to "replication" folder
 data <- read.dta("CKT_2023_SIM--CostSharing.dta")
-
-####################################################################################
-# Plots
 
 # --------------------------------#
 # Figure 5(a): Scatterplot 
 # --------------------------------#
-#data.zoom <- data %>% filter(sev_day > 44 & sev_day<60)                                 
 ggplot(data, aes(x = week, y = op_n_per)) +
 		geom_point() +
 		geom_vline(xintercept = 0) +
